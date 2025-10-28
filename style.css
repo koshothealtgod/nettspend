@@ -117,3 +117,19 @@ p{
 #bg-audio {
   display: none;
 }
+/* MOBILE: Keep images side-by-side but shrink to fit */
+@media (max-width: 768px) {
+  .media {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 0 10px;
+  }
+
+  .media img {
+    width: 47% !important;   /* Two images = 48% + 48% = 96% → fits */
+    max-width: 170px !important;
+    height: auto !important;
+    border-radius: 10px;
+  }
+}
