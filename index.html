@@ -99,6 +99,49 @@
     </div>
     <br>
     <br>
+<!-- VIDEO LEFT + TEXT RIGHT -->
+<div class="video-text-section">
+  <div class="video-side">
+    <video id="bg-video" autoplay muted loop playsinline>
+      <source src="xav.mp4" type="video/mp4">
+      Your browser does not support video.
+    </video>
+    <button id="unmute-btn" onclick="toggleVideoSound()">Tap for Sound</button>
+  </div>
+  <div class="text-side">
+    <h1>
+      this vid did irreparable damage to the underground
+    </h1>
+  </div>
+</div>
+<!-- FIXED JS (BOTH MUSIC + VIDEO) -->
+<script>
+
+  // VIDEO SOUND
+  const video = document.getElementById('bg-video');
+  const unmuteBtn = document.getElementById('unmute-btn');
+
+  function toggleVideoSound() {
+    if (video.muted) {
+      video.muted = false;
+      unmuteBtn.textContent = 'Sound On';
+      unmuteBtn.style.background = '#ff4646';
+    } else {
+      video.muted = true;
+      unmuteBtn.textContent = 'Tap for Sound';
+      unmuteBtn.style.background = 'rgba(255, 70, 70, 0.9)';
+    }
+  }
+
+  // Auto-unmute video after first tap anywhere (iPhone fix)
+  document.body.addEventListener('touchstart', function() {
+    if (video.muted) {
+      video.muted = false;
+      unmuteBtn.textContent = 'Sound On';
+      unmuteBtn.style.background = '#ff4646';
+    }
+  }, { once: true });
+</script>
 
 
 
